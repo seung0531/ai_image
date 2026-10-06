@@ -18,7 +18,7 @@ AI 기반 이미지 생성 기능을 중심으로 제작한 풀스택 웹 애플
 - Development Tools: IntelliJ IDEA, VS Code, Git, GitHub, Postman
 
 ### 프로젝트 아키텍처
-
+```text
 사용자
   ↓
 React + Vite
@@ -30,7 +30,7 @@ Spring Boot
   └── Security
         │
         └──────────→ AI 이미지 생성 서버
-
+```
 ### 주요 기능
 
 ### 1. 회원가입 / 로그인
