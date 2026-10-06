@@ -1,0 +1,867 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #f5f6f8;
+  color: #222;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   Navbar
+========================================================= */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 32px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+.navbar-spacer {
+  margin-left: auto;
+}
+
+.navbar-email {
+  margin-left: auto;
+  color: #555;
+}
+
+.logout-button {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 6px;
+  background: #f1f1f1;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background: #ddd;
+}
+
+
+/* =========================================================
+   Auth
+========================================================= */
+
+.auth-page {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 420px;
+  padding: 32px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+.auth-form h1 {
+  margin-top: 0;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.auth-form label {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.auth-form input {
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 12px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+}
+
+.auth-form input:focus {
+  border-color: #2563eb;
+}
+
+.auth-form button {
+  margin-top: 8px;
+  padding: 13px;
+  border: 0;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.auth-form button:hover:not(:disabled) {
+  background: #222;
+  color: white;
+}
+
+.auth-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.auth-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.success-message {
+  margin-top: 18px;
+  text-align: center;
+  color: green;
+}
+
+.error-message {
+  margin-top: 18px;
+  text-align: center;
+  color: red;
+}
+
+.page-message {
+  padding: 48px 20px;
+  text-align: center;
+}
+
+
+/* =========================================================
+   AI Image Generator
+========================================================= */
+
+.image-page {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.image-page > h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 32px;
+}
+
+.image-page > p {
+  margin: 12px 0 32px;
+  text-align: center;
+  color: #666;
+}
+
+.image-page textarea {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 16px;
+  border: 1px solid #d5d8dd;
+  border-radius: 10px;
+  background: white;
+  font-size: 16px;
+  line-height: 1.6;
+  resize: vertical;
+  outline: none;
+}
+
+.image-page textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.image-page textarea:disabled,
+.image-page select:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.image-page label {
+  display: block;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.image-size-options {
+  margin-top: 24px;
+}
+
+.image-size-options label {
+  margin: 0;
+}
+
+.image-size-options select {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 13px 14px;
+  border: 1px solid #d5d8dd;
+  border-radius: 10px;
+  background: white;
+  font-size: 15px;
+  cursor: pointer;
+  outline: none;
+}
+
+.image-size-options select:focus {
+  border-color: #2563eb;
+}
+
+.image-page > button {
+  display: block;
+  width: 100%;
+  margin-top: 28px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.image-page > button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.image-page > button:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+.image-page > button:disabled {
+  background: #aeb8c7;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+
+/* =========================================================
+   Image Generation Loading
+========================================================= */
+
+.generation-loading {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 24px;
+  padding: 20px;
+  border: 1px solid #d9dce1;
+  border-radius: 12px;
+  background: white;
+}
+
+.generation-loading p {
+  margin: 6px 0 0;
+}
+
+.loading-description {
+  color: #666;
+  font-size: 14px;
+}
+
+.loading-spinner {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border: 4px solid #ddd;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: loading-spin 0.8s linear infinite;
+}
+
+@keyframes loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   Generated Image
+========================================================= */
+
+.generated-image {
+  margin-top: 40px;
+  padding: 24px;
+  border: 1px solid #e1e4e8;
+  border-radius: 14px;
+  background: white;
+}
+
+.generated-image h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.generated-image img {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   My Images / Public Gallery
+========================================================= */
+
+.my-images-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.my-images-page h1 {
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   Search
+========================================================= */
+
+.image-search-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.image-search-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px 15px;
+  border: 1px solid #d5d8dd;
+  border-radius: 9px;
+  background: white;
+  font-size: 15px;
+  outline: none;
+}
+
+.image-search-form input:focus {
+  border-color: #2563eb;
+}
+
+.image-search-form button {
+  padding: 11px 18px;
+  border: 1px solid #222;
+  border-radius: 8px;
+  background: white;
+  color: #222;
+  cursor: pointer;
+}
+
+.image-search-form button:hover {
+  background: #222;
+  color: white;
+}
+
+
+/* =========================================================
+   Image Count
+========================================================= */
+
+.image-count {
+  margin-top: -10px;
+  margin-bottom: 24px;
+  color: #666;
+}
+
+
+/* =========================================================
+   Gallery Sort
+========================================================= */
+
+.gallery-sort {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.gallery-sort button {
+  padding: 10px 18px;
+  border: 1px solid #d5d8dd;
+  border-radius: 8px;
+  background: white;
+  color: #444;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.gallery-sort button:hover {
+  border-color: #222;
+}
+
+.gallery-sort button.active {
+  border-color: #222;
+  background: #222;
+  color: white;
+}
+
+
+/* =========================================================
+   Image Grid
+========================================================= */
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(
+        auto-fill,
+        minmax(240px, 1fr)
+    );
+  gap: 24px;
+}
+
+
+/* =========================================================
+   Image Card
+========================================================= */
+
+.image-card {
+  overflow: hidden;
+  border: 1px solid #e1e4e8;
+  border-radius: 14px;
+  background: white;
+  transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+}
+
+.image-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+          0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.image-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   My Image Card Content
+========================================================= */
+
+.image-card-content {
+  padding: 16px;
+}
+
+.image-prompt {
+  margin: 0 0 10px;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.image-detail-link {
+  cursor: pointer;
+}
+
+.image-negative-prompt {
+  margin: 8px 0;
+  color: #777;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.image-size {
+  margin: 8px 0;
+  color: #555;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.image-card time {
+  color: #666;
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   Public Gallery Card
+========================================================= */
+
+.gallery-card-info {
+  padding: 14px 16px 16px;
+}
+
+.gallery-prompt {
+  display: -webkit-box;
+  min-height: 3em;
+  margin: 0;
+  overflow: hidden;
+  line-height: 1.5;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  text-overflow: ellipsis;
+
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.gallery-like-count {
+  display: inline-block;
+  margin-top: 10px;
+  color: #555;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   Favorite
+========================================================= */
+
+.favorite-button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+.favorite-button:hover {
+  background: #f5f5f5;
+}
+
+.favorite-button.active {
+  font-weight: 700;
+}
+
+.favorite-filter-button {
+  margin-bottom: 24px;
+  padding: 10px 16px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+.favorite-filter-button:hover {
+  border-color: #222;
+}
+
+.favorite-filter-button.active {
+  border-color: #222;
+  background: #222;
+  color: white;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   Card Actions
+========================================================= */
+
+.download-image-button,
+.reuse-prompt-button,
+.delete-image-button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+.download-image-button {
+  border: 1px solid #222;
+  color: #222;
+}
+
+.download-image-button:hover {
+  background: #222;
+  color: white;
+}
+
+.reuse-prompt-button {
+  border: 1px solid #2563eb;
+  color: #2563eb;
+}
+
+.reuse-prompt-button:hover {
+  background: #2563eb;
+  color: white;
+}
+
+.delete-image-button {
+  border: 1px solid #d93025;
+  color: #d93025;
+}
+
+.delete-image-button:hover {
+  background: #d93025;
+  color: white;
+}
+
+
+/* =========================================================
+   Pagination
+========================================================= */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.pagination button {
+  min-width: 80px;
+  padding: 10px 16px;
+  border: 1px solid #222;
+  border-radius: 8px;
+  background: white;
+  color: #222;
+  cursor: pointer;
+}
+
+.pagination button:hover:not(:disabled) {
+  border-color: #222;
+  background: #222;
+  color: white;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.pagination span {
+  min-width: 70px;
+  text-align: center;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   Image Detail
+========================================================= */
+
+.image-detail-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.back-button {
+  margin-bottom: 24px;
+  padding: 10px 14px;
+  border: 1px solid #bbb;
+  border-radius: 7px;
+  background: white;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background: #f1f1f1;
+}
+
+.image-detail-layout {
+  display: grid;
+  grid-template-columns:
+        minmax(0, 1.4fr)
+        minmax(300px, 0.8fr);
+  gap: 40px;
+}
+
+.image-detail-preview img {
+  display: block;
+  width: 100%;
+  border-radius: 14px;
+}
+
+.image-detail-info {
+  padding: 10px 0;
+}
+
+.image-detail-info h1 {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.image-detail-info h2 {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.image-detail-info p {
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.image-detail-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.image-detail-actions button {
+  padding: 12px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+.danger-button {
+  border-color: #d93025 !important;
+  color: #d93025;
+}
+
+
+/* =========================================================
+   Like
+========================================================= */
+
+.like-button {
+  width: 100%;
+  margin-top: 30px;
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.like-button:hover {
+  background: #f5f5f5;
+}
+
+.like-button.active {
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   Download
+========================================================= */
+
+.download-button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.download-button:hover {
+  background: #222;
+  color: white;
+}
+
+
+/* =========================================================
+   Responsive
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .image-detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .navbar {
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 16px 20px;
+  }
+
+  .navbar-email {
+    margin-left: 0;
+    width: 100%;
+    order: 10;
+  }
+
+  .navbar-spacer {
+    display: none;
+  }
+
+  .image-page {
+    padding: 40px 16px;
+  }
+
+  .image-page > h1 {
+    font-size: 26px;
+  }
+
+  .my-images-page {
+    padding: 40px 16px;
+  }
+
+  .my-images-page h1 {
+    font-size: 26px;
+  }
+
+  .image-search-form {
+    flex-direction: column;
+  }
+
+  .image-search-form button {
+    width: 100%;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-sort {
+    width: 100%;
+  }
+
+  .gallery-sort button {
+    flex: 1;
+  }
+
+  .generation-loading {
+    align-items: flex-start;
+  }
+
+}
