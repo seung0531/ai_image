@@ -84,13 +84,11 @@ AI 이미지 생성 서버
 
 프로젝트 성과
 
-- React + Vite와 Spring Boot를 활용한 프론트엔드·백엔드 분리 구조의 풀스택 웹 애플리케이션 구현
-- JWT 기반 인증과 Spring Security를 적용하여 로그인 및 인증이 필요한 API 보호
-- CSRF 토큰 처리를 적용하여 상태 변경 요청에 대한 보안 강화
-- AI 이미지 생성 기능을 구현하고 생성 결과를 이미지 이력으로 저장 및 관리
-- 이미지 검색, 즐겨찾기, 공개/비공개, 좋아요, 페이징 등 이미지 관리 기능 구현
-- 공개 갤러리를 구현하여 다른 사용자가 공개한 이미지를 조회하고 좋아요를 남길 수 있도록 구현
-- Controller → Service → Repository 계층 구조를 적용하여 기능별 책임을 분리
-- GlobalExceptionHandler를 적용하여 API 예외 응답을 일관된 JSON 형식으로 처리
-- Postman을 활용하여 인증 API, 이미지 API, 공개/비공개 API 등의 동작을 검증
-- Git을 활용하여 프로젝트 버전을 관리하고 GitHub에 프로젝트를 업로드
+- React + Vite / Spring Boot 기반 풀스택 웹 애플리케이션 구현
+- JWT + Spring Security + CSRF를 적용한 인증 및 API 보안 구현
+- AI 이미지 생성부터 저장, 검색, 즐겨찾기, 공개 갤러리까지 이미지 관리 기능 구현
+- 좋아요 및 페이징을 적용한 공개 이미지 갤러리 구현
+- Controller / Service / Repository 계층 분리를 통한 백엔드 구조 설계
+- GlobalExceptionHandler를 통한 일관된 예외 응답 처리
+- Postman을 활용한 주요 API 기능 및 인증/권한 동작 검증
+- Git/GitHub를 활용한 프로젝트 버전 관리 및 협업 환경 구축
