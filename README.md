@@ -24,14 +24,12 @@ AI 기반 이미지 생성 기능을 중심으로 제작한 풀스택 웹 애플
 React + Vite
   ↓
 Spring Boot
-  ├─ Controller
-  ├─ Service
-  ├─ Repository
-  └─ Security
-  ↓
-MongoDB
-  ↓
-AI 이미지 생성 서버
+  ├── Controller
+  ├── Service
+  ├── Repository ──→ MongoDB
+  └── Security
+        │
+        └──────────→ AI 이미지 생성 서버
 
 주요 기능
 
